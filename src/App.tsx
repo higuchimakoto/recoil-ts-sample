@@ -1,24 +1,19 @@
 import React from 'react';
 import './App.css';
+import { AddButton } from './component/AddButton';
+import { SearchForm } from './component/SearchForm';
+import { TitleForm } from './component/TitleForm';
+import { TodoList } from './component/TodoList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+export const App: React.FC = () => {
+    return (
+        <div>
+            <div>
+                <TitleForm />
+                <AddButton />
+            </div>
+            <SearchForm />
+            <TodoList />
+        </div>
+    );
+};
