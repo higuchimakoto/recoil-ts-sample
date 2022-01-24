@@ -1,6 +1,11 @@
 import e from 'express';
 import React, { useCallback } from 'react';
-import { SetterOrUpdater, useRecoilValue, useSetRecoilState } from 'recoil';
+import {
+    SetterOrUpdater,
+    useRecoilState,
+    useRecoilValue,
+    useSetRecoilState,
+} from 'recoil';
 import { addButtonState } from '../atmos/AddButtonAtom';
 import { todoTitleFormState } from '../atmos/TodoTitleFormAtom';
 
@@ -13,8 +18,8 @@ export const TitleForm: React.FC = () => {
         useSetRecoilState(todoTitleFormState);
 
     // isButtonDisabledを更新する関数を呼び出す必要がある。
-    const setIsDisabledButton = useSetRecoilState(addButtonState);
-    console.log('👉 setIsDisabledButton', setIsDisabledButton);
+    const setIsDisabledButton: SetterOrUpdater<boolean> =
+        useSetRecoilState(addButtonState);
 
     // テキストフィールドのonChange処理
     const onChange = useCallback(

@@ -22,14 +22,24 @@ export const AddButton: React.FC = () => {
         useSetRecoilState(todoTitleFormState);
 
     // buttonの活性を切り替えるstateを定義する。
-    const isDisabledButton: boolean = useRecoilValue(addButtonState);
+    const [isDisabledButton, setIsDisabledButton]: [
+        boolean,
+        SetterOrUpdater<boolean>
+    ] = useRecoilState(addButtonState);
 
     const onClick = useCallback(() => {
         setTodoList([...todoList, { title: todoTitleFormValue }]);
 
         // タスクを追加したら入力欄は空にする
         setTitleFormValue('');
-    }, [todoList, todoTitleFormValue, setTodoList, setTitleFormValue]);
+        setIsDisabledButton(true);
+    }, [
+        todoList,
+        todoTitleFormValue,
+        setTodoList,
+        setTitleFormValue,
+        setIsDisabledButton,
+    ]);
 
     return (
         <button onClick={onClick} disabled={isDisabledButton}>
