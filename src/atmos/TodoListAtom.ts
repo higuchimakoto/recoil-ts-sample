@@ -3,7 +3,10 @@ import { Todo } from './../../Todo';
 
 export const todoListState = atom<Todo[]>({
     key: 'todoList',
-    default: [{ title: 'one' }, { title: 'two' }, { title: 'three' }],
+    default: [
+        { title: 'one', text: 'タスク1です。' },
+        { title: 'two', text: 'タスク２です。' },
+        { title: 'three', text: 'タスク３です。' },
+    ],
 });
 
-// TODO:title以外の要素を渡す仕様にしてみる

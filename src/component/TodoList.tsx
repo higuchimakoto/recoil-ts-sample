@@ -13,7 +13,12 @@ export const TodoList: React.FC = () => {
             <p>タスク一覧</p>
             <ul>
                 {list.map((todo: Todo, i: number) => {
-                    return <li key={`${todo.title}_${i}`}>{todo.title}</li>;
+                    return (
+                        <li key={`${todo.title}_${i}`}>
+                            <div>{todo.title}</div>
+                            <p>{todo.text}</p>
+                        </li>
+                    );
                 })}
             </ul>
         </div>
